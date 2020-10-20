@@ -1,0 +1,9 @@
+<h1>Quizzes</h1>
+<p ng-show="isLoading" class="delay">
+    Loading list of quizzes - please wait...
+</p>
+<p ng-show="quizList" ng-repeat="quiz in quizList">
+    <span>{{quiz.name}}</span>
+    <button ng-click="hostQuiz(quiz)">Host</button>
+</p>
+<p ng-show="error" class="error">{{error}}</p>

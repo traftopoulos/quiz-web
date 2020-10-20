@@ -1,0 +1,59 @@
+<div ng-show="state">
+
+    <div ng-show="state.status=='awaiting-players'">
+        <h3>To join, visit <b>{{joinUrl}}</b> and enter room code</h3>
+        <h1>{{state.roomCode}}</h1>
+        <h3>Waiting for players to join...</h3>
+        <p>
+            <span class='player' ng-repeat="player in state.players">
+                {{player}}
+            </span>
+        </p>
+        <p>Total: {{state.count}} players</p>
+        <p>
+            <button ng-click="next()">Start the quiz!</button>
+            <button ng-click="abort()">Cancel</button>
+        </p>
+    </div>
+
+    <div ng-show="state.status=='showing-question'">
+        <h3>Question {{state.questionNumber}} / {{state.totalQuestions}}</h3>
+        <h2>{{state.question}}</h2>    
+        <p ng-repeat="answer in state.answers">
+            <span class="answer">
+                <span>{{answer.letter}})</span>
+                <span>{{answer.answer}}</span>    
+            </span>
+        </p>
+        <p>Received {{state.answerCount}} / {{state.playerCount}} answers</p>
+        <button ng-click="next()">Reveal answer</button>
+    </div>
+
+    <div ng-show="state.status=='showing-answer'">
+        <h3>Question {{state.questionNumber}} / {{state.totalQuestions}}</h3>
+        <h2>{{state.question}}</h2>
+        <p ng-repeat="answer in state.answers">
+            <span class="answer" ng-class="{'correct': answer.isCorrect}">
+                <span>{{answer.letter}})</span>
+                <span>{{answer.answer}}</span>
+            </span>
+            <span>({{answer.count}})</span>
+        </p>
+        <button ng-click="next()">Reveal scores</button>
+    </div>
+
+    <div ng-show="state.status=='showing-scores'">
+        <h3 ng-hide="state.isGameOver">Question {{state.questionNumber}} / {{state.totalQuestions}}</h3>
+        <h3 ng-show="state.isGameOver">Winner is {{state.winner}}</h3>        
+        <p ng-repeat="player in state.players">
+            <span>{{player.rank}}</span>
+            <span>{{player.name}}</span>
+            <span>{{player.score}} points</span>
+        </p>
+        <button ng-hide='state.isGameOver' ng-click="next()">Next question</button>
+        <button ng-show='state.isGameOver' ng-click="next()">Finish</button>
+    </div>
+
+</div>
+
+<p ng-show="error" class="error">{{error}}</p>

@@ -1,0 +1,10 @@
+<h1>Join Quiz</h1>
+<input ng-model="roomCode" placeholder="Room Code">
+<input ng-model="playerName" placeholder="Player Name">
+<button ng-disabled="status=='joining'" ng-click="join()">Join Quiz</button>    
+<p ng-show="status=='joining'" class="delay">
+    Joining - please wait...
+</p>
+<p class='error' ng-show="status=='error'">
+    {{error}}
+</p>
