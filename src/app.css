@@ -9,7 +9,7 @@ body {
 }
 
 .player {
-    border: 10px solid black;
+    border: 10px solid rgb(121, 10, 212);
     background-color: lightblue;
     padding: 4px;
     margin-right: 8px;
