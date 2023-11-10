@@ -21,10 +21,10 @@ describe('JoinQuizController', function () {
 
     it('should show error when join quiz call fails', async function() {
         spyOn(mockPlayService, "joinQuiz").and.throwError(new Error('Room not found'));
-        $scope.roomCode = '1234';
-        $scope.playerName = 'Fred';
+        $scope.roomCode = '12';
+        $scope.playerName = '12';
         await $scope.join();
         expect($scope.status).toBe('error');
-        expect($scope.error).toBe('Room not found');        
+        expect($scope.error).toBe('Room not found tina');        
     });
 });
