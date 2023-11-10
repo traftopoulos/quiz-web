@@ -16,7 +16,7 @@ describe('JoinQuizController', function () {
         $scope.roomCode = '12345';
         $scope.playerName = 'Fred2';
         await $scope.join();
-        expect(mockPlayService.joinQuiz).toHaveBeenCalledWith('1234', 'Fred');
+        expect(mockPlayService.joinQuiz).toHaveBeenCalledWith('12345', 'Fred2');
     });
 
     it('should show error when join quiz call fails', async function() {
