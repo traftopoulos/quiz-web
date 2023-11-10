@@ -13,8 +13,8 @@ describe('JoinQuizController', function () {
 
     it('should join quiz when button clicked', async function() {
         spyOn(mockPlayService, "joinQuiz");
-        $scope.roomCode = '1234';
-        $scope.playerName = 'Fred';
+        $scope.roomCode = '12345';
+        $scope.playerName = 'Fred2';
         await $scope.join();
         expect(mockPlayService.joinQuiz).toHaveBeenCalledWith('1234', 'Fred');
     });
