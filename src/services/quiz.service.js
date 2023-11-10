@@ -3,7 +3,7 @@ factory('QuizService', ['$http', 'ConfigService', function($http, ConfigService)
 
     function handleError(error) {
         if (error?.status == -1) {
-            throw new Error('No Luck Tina');
+            throw new Error('No luck Tina');
         } else if (error?.data?.error) {
             throw new Error(error.data.error);
         } else {
